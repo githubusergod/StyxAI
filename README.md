@@ -6,7 +6,7 @@ This repository contains the source code for the official StyxAI website, an inv
 ## 🚀 Live Site
 
 The fully rendered and interactive website is live at:
-**https://your-username.github.io/styxai/** *(Note: Replace "your-username" with your actual GitHub username)*
+**https://githubusergod.github.io/styxai/** *(Note: Replace "your-username" with your actual GitHub username)*
 
 ## 💡 About the Project
 
