@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Timothy Taylor - StyxAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* StyxAI Investor-Grade Technology Theme v5.8 (Final) */
+        :root {
+            --primary-color: #111111; /* Near Black */
+            --secondary-color: #5EEAD4; /* Bright Teal/Cyan */
+            --background-color: #000000; /* True Black */
+            --text-color: #C2C8D4; /* Light Gray/Blue */
+            --text-color-darker: #8892b0;
+            --header-font: 'Inter', 'Roboto Mono', monospace;
+            --body-font: 'Inter', sans-serif;
+            --border-color: #2A3B52;
+        }
+
+        /* Basic Reset and Body Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--background-color); color: var(--text-color); font-family: var(--body-font); line-height: 1.8; font-size: 16px; }
+
+        /* Main Container */
+        .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header and Navigation */
+        .main-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border-color); }
+        .logo a { display: inline-block; }
+        .logo img { height: 50px; width: auto; vertical-align: middle; }
+        .main-nav a { font-family: var(--header-font); color: var(--text-color); text-decoration: none; margin-left: 20px; font-size: 1em; font-weight: 500; transition: color 0.2s ease-in-out; padding-bottom: 5px; border-bottom: 2px solid transparent; }
+        .main-nav a:hover { color: var(--secondary-color); }
+        .main-nav a.active { color: #FFFFFF; border-bottom: 2px solid var(--secondary-color); }
+
+        /* Hero Section */
+        .hero-section { text-align: center; padding: 80px 20px; }
+        .site-title-main { font-family: var(--header-font); font-size: 4em; font-weight: 700; color: #FFFFFF; margin-bottom: 0.2em; }
+        .site-tagline { font-family: var(--body-font); font-size: 1.2em; color: var(--secondary-color); letter-spacing: 1px; }
+
+        /* Section Styling */
+        .section { padding: 60px 0; border-bottom: 1px solid var(--border-color); }
+        .section:last-child { border-bottom: none; }
+        .section-title { font-family: var(--header-font); color: #FFFFFF; font-size: 2.2em; font-weight: 600; margin-bottom: 1em; display: inline-block; }
+
+        /* General Content Styling */
+        p { margin-bottom: 1em; text-align: left; }
+        ul { list-style-position: inside; padding-left: 1em; margin-bottom: 1em; }
+        li { margin-bottom: 0.5em; }
+        strong { color: #FFFFFF; font-weight: 600; }
+        em { color: var(--secondary-color); font-style: normal; }
+        
+        /* Call to Action Button */
+        .cta-button { display: inline-block; background-color: var(--secondary-color); color: var(--primary-color); padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-family: var(--header-font); margin-top: 1em; transition: all 0.3s ease; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(94, 234, 212, 0.2); }
+
+        /* About Page Specific Styles */
+        .about-layout { display: flex; gap: 40px; align-items: flex-start; }
+        .about-text { flex: 2; }
+        .about-image { flex: 1; text-align: center; }
+        .about-image img { max-width: 100%; border-radius: 50%; border: 3px solid var(--border-color); }
+
+        /* Timeline Styles */
+        .timeline { list-style: none; padding-left: 0; margin-top: 2em; }
+        .timeline li { position: relative; padding-left: 30px; margin-bottom: 1.5em; border-left: 2px solid var(--border-color); }
+        .timeline li::before { content: ''; position: absolute; left: -9px; top: 5px; width: 16px; height: 16px; border-radius: 50%; background-color: var(--secondary-color); border: 2px solid var(--background-color); }
+        .timeline h4 { font-family: var(--header-font); color: var(--secondary-color); margin-bottom: 0.2em; }
+        
+        /* Use of Funds Chart */
+        .funds-chart { list-style: none; padding: 0; margin-top: 1.5em; }
+        .funds-chart li { margin-bottom: 1em; display: flex; align-items: center; font-size: 1.1em; }
+        .funds-chart .label { width: 50%; }
+        .funds-chart .bar-container { width: 50%; background-color: #1a1a1a; border-radius: 5px; height: 25px; }
+        .funds-chart .bar { background-color: var(--secondary-color); height: 100%; border-radius: 5px; text-align: right; padding-right: 10px; color: var(--primary-color); font-weight: 700; line-height: 25px; }
+
+        /* Video Showcase Section */
+        .video-container { margin-top: 2em; }
+        .video-container iframe { width: 100%; max-width: 800px; height: 450px; border: 1px solid var(--border-color); border-radius: 8px; display: block; margin: 0 auto; }
+        .video-container h4 { font-family: var(--header-font); color: var(--secondary-color); margin-top: 1em; font-size: 1.2em; text-align: left; }
+        .video-container p { font-size: 0.95em; text-align: left; max-width: 800px;}
+        .video-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 2em; }
+        .video-grid .video-item iframe { width: 100%; height: 315px; border: 1px solid var(--border-color); border-radius: 8px; }
+        .video-grid .video-item h4 { text-align: left; font-size: 1.2em; }
+        .video-grid .video-item p { text-align: left; }
+
+        /* Comparison Table Styles */
+        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 2em; }
+        .comparison-table th, .comparison-table td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--border-color); }
+        .comparison-table th { font-family: var(--header-font); color: #FFFFFF; font-size: 1.1em; }
+        .comparison-table td.highlight { color: var(--secondary-color); font-weight: 600; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+
+        /* Page Hiding Logic */
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* Responsive Styles */
+        @media (min-width: 768px) { .video-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .about-layout, .funds-chart li { flex-direction: column; }
+            .about-image { order: -1; margin-bottom: 2em; }
+            .funds-chart .label { width: 100%; margin-bottom: 0.5em; }
+            .funds-chart .bar-container { width: 100%; }
+            .funds-chart li { align-items: flex-start; }
+            .comparison-table { display: block; overflow-x: auto; }
+            .video-container iframe { height: 300px; }
+        }
+        @media (max-width: 600px) {
+            .main-header { flex-direction: column; gap: 15px; }
+            .main-nav { display: flex; flex-wrap: wrap; justify-content: center; }
+            .main-nav a { margin: 5px 10px; }
+            .site-title-main { font-size: 3em; }
+            .video-container iframe { height: 200px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="main-header">
+            <div class="logo">
+                <!-- IMPORTANT: For the logo to load, 'logo styx ai.webp' must be in the same folder as this HTML file. -->
+                <a href="#home" class="nav-link"><img src="logo styx ai.webp" alt="StyxAI Logo" onerror="this.onerror=null;this.src='https://placehold.co/150x50/000000/5EEAD4?text=StyxAI';"></a>
+            </div>
+            <nav class="main-nav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#technology" class="nav-link">Technology</a>
+                <a href="#market" class="nav-link">Market</a>
+                <a href="#investors" class="nav-link">For Investors</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+
+            <!-- HOME PAGE -->
+            <div id="home-page" class="page active">
+                <section class="hero-section">
+                    <h1 class="site-title-main">STYX AI</h1>
+                    <p class="site-tagline">Making the Invisible Visible</p>
+                </section>
+                <section id="summary">
+                    <h3 class="section-title">Executive Summary</h3>
+                    <p>StyxAI has developed a novel, patent-pending paradigm in image analysis: the <strong>Image State Ensemble Decomposition (ISED)</strong> and <strong>Enhancement (ISEE)</strong> framework. This is a foundational platform technology that establishes a <strong>third axis of image decomposition</strong>—inter-channel spectral contrast—that complements and surpasses traditional methods. ISED/ISEE makes "the invisible visible" by isolating and amplifying subtle, physically meaningful information that other systems miss, creating significant value and a strong competitive moat in multi-billion dollar markets.</p>
+                </section>
+                 <section id="demos">
+                    <h3 class="section-title">Proof of Concept: Biomedical Enhancement</h3>
+                     <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/8lZNTa2642s?start=12&autoplay=1&mute=1&loop=1&playlist=8lZNTa2642s" title="Biomedical Enhancement Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <h4>Unlocking Critical Data in Cancer Research</h4>
+                        <p>This demonstration showcases the ISEE framework applied to a challenging histopathology sample. Our technology enhances the raw data to reveal critical morphological details, improving the contrast of nuclei and making cellular structures more distinct. This level of clarity is crucial for both pathologists and for training more accurate AI diagnostic models.</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TECHNOLOGY PAGE -->
+            <div id="technology-page" class="page">
+                <section id="tech-intro">
+                    <h3 class="section-title">A New Axis of Image Decomposition</h3>
+                     <p>The <strong>Image State Ensemble Decomposition (ISED)</strong> and <strong>Enhancement (ISEE)</strong> framework represents a fundamental shift in image analysis. While traditional methods operate on spatial frequency (Fourier) or spatial location (Wavelets), ISED establishes a <strong>third axis: inter-channel spectral contrast</strong>. It isolates information based on the <em>relationships between channels</em>, a domain where critical, physically meaningful data resides. This approach, enabled by our proprietary non-linear operators, is mathematically complete, lossless, and modality-agnostic.</p>
+                </section>
+                <section>
+                    <h3 class="section-title">Mathematical Rigor & The Quantum Analogy</h3>
+                    <p>The framework's core claims are mathematically sound, with an **Exact Reconstruction Identity** ensuring no information is lost. Its inherent **non-orthogonality** is a key feature, not a flaw, providing a robust and flexible data representation consistent with mathematical **Frame Theory**. Furthermore, the ISEE process possesses a deep mathematical isomorphism to quantum information science, formally mapped to concepts like **Positive Operator-Valued Measures (POVMs)**. This provides a rigorous basis for its clean, artifact-free enhancement capabilities.</p>
+                </section>
+                <section>
+                    <h3 class="section-title">Future-Ready Architecture</h3>
+                    <p>The ISED/ISEE framework is designed for the future of computation. Its pixel-wise, parallelizable structure is a natural fit for advanced hardware like <strong>FPGAs and TPUs</strong>, enabling real-time, low-latency applications. Furthermore, it can serve as a powerful feature extraction layer for <strong>hybrid deep learning models</strong>, making existing AI systems more accurate and interpretable by feeding them superior, pre-processed data.</p>
+                    <a href="StyxAI_Technical_White_Paper.pdf" class="cta-button" id="download-whitepaper-btn" download>Download Technical White Paper</a>
+                </section>
+                <section id="deep-dive">
+                    <h3 class="section-title">Technical Deep Dives</h3>
+                    <div class="video-grid">
+                        <div class="video-item">
+                            <iframe src="https://www.youtube.com/embed/A67RCAKOjnY?autoplay=1&mute=1&loop=1&playlist=A67RCAKOjnY" title="Synthetic Depth Generation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <h4>Generative AI: Synthetic Depth from a Single Image</h4>
+                            <p>This video demonstrates a powerful extension of the ISED/ISEE framework: the generation of a synthetic depth map from a single 2D image. This moves StyxAI beyond analysis into the realm of synthetic data generation, with applications in robotics, AR, and autonomous navigation.</p>
+                        </div>
+                        <div class="video-item">
+                            <iframe src="https://www.youtube.com/embed/OqF9ORvowLM?autoplay=1&mute=1&loop=1&playlist=OqF9ORvowLM" title="ISEE Filter Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <h4>Platform Versatility: Real-Time Filtering</h4>
+                            <p>This demo showcases the framework's versatility by applying it as a real-time video filter. This proves the core engine is a flexible platform, capable of being adapted to a wide range of applications beyond scientific analysis, including digital media and creative AI.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- MARKET ANALYSIS PAGE -->
+            <div id="market-page" class="page">
+                 <section id="market-intro">
+                    <h3 class="section-title">Market Analysis</h3>
+                    <p>The ISED/ISEE framework addresses critical pain points in several high-value, high-growth industries where the cost of a missed feature is exceptionally high.</p>
+                </section>
+                <section id="competitive-landscape">
+                    <h3 class="section-title">Competitive Landscape</h3>
+                    <p>Our advantage is not incremental; it is architectural. While competitors develop better AI models, we improve the fundamental data those models rely on. ISED/ISEE is a "pre-processor" that enhances data, making all subsequent AI and analysis tools more effective and accurate. Our non-linear approach is fundamentally different from the linear mixing models assumed by alternatives like Color Deconvolution and Hyperspectral Unmixing.</p>
+                    
+                    <h4 style="color: var(--secondary-color); margin-top: 2em;">Foundational Methods Comparison</h4>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Primary Domain</th>
+                                <th>Core Principle</th>
+                                <th>Key Advantage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="highlight">ISED-ISEE</td>
+                                <td class="highlight">Inter-channel Spectral Contrast</td>
+                                <td class="highlight">Decomposition into directed differences</td>
+                                <td class="highlight">Interpretable feature isolation</td>
+                            </tr>
+                            <tr>
+                                <td>Fourier Transform</td>
+                                <td>Spatial Frequency</td>
+                                <td>Decomposition into sinusoids</td>
+                                <td>Global analysis</td>
+                            </tr>
+                            <tr>
+                                <td>Wavelet Transform</td>
+                                <td>Spatial Location/Scale</td>
+                                <td>Decomposition into localized wavelets</td>
+                                <td>Multi-resolution analysis</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4 style="color: var(--secondary-color); margin-top: 2.5em;">Application-Specific Methods Comparison</h4>
+                     <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Core Assumption</th>
+                                <th>Interpretability</th>
+                                <th>Noise Robustness</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="highlight">ISED-ISEE</td>
+                                <td class="highlight">Information is in inter-channel contrast</td>
+                                <td class="highlight">High (Directed contrasts have physical meaning)</td>
+                                <td class="highlight">High (Suppresses common-mode noise)</td>
+                            </tr>
+                            <tr>
+                                <td>Color Deconvolution</td>
+                                <td>Linear stain mixing model</td>
+                                <td>High (Concentration maps of stains)</td>
+                                <td>Variable (Sensitive to stain matrix)</td>
+                            </tr>
+                            <tr>
+                                <td>Hyperspectral Unmixing (NMF/ICA)</td>
+                                <td>Linear endmember mixing model</td>
+                                <td>High (Abundance maps of materials)</td>
+                                <td>Variable (Sensitive to model assumptions)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+            
+            <!-- FOR INVESTORS PAGE -->
+            <div id="investors-page" class="page">
+                <section id="investment-opportunity">
+                    <h3 class="section-title">Investment Opportunity</h3>
+                    <p>StyxAI represents a unique opportunity to invest in a foundational, patent-pending technology platform with demonstrated applications in multiple billion-dollar markets. We are seeking capital to accelerate our patent filings, scale our R&D, and launch our commercial SaaS platform.</p>
+                </section>
+                <section id="ip-moat">
+                    <h3 class="section-title">Our Defensible Moat</h3>
+                    <p>Our intellectual property strategy is multi-layered, creating a durable competitive advantage that is exceptionally difficult to replicate. It includes:</p>
+                    <ul>
+                        <li><strong>Core Method Patents:</strong> Covering the foundational mathematical operators and processes of the ISED/ISEE framework.</li>
+                        <li><strong>Application Patents:</strong> For high-value, specific use cases (e.g., cancer detection, defect analysis).</li>
+                        <li><strong>Trade Secrets:</strong> Proprietary, optimized state vectors (ϕ), scaling parameters (α, γ), and adaptive algorithms for different imaging modalities.</li>
+                        <li><strong>Deep Scientific Foundation:</strong> The framework's isomorphism to quantum information science creates a deep, scientifically-grounded advantage that is non-trivial to replicate.</li>
+                        <li><strong>The Founder's Unique Insight:</strong> The core concept of the technology stems from the founder's unique perceptual journey, an inimitable starting point that cannot be reverse-engineered.</li>
+                    </ul>
+                </section>
+                 <section id="gtm-strategy">
+                    <h3 class="section-title">Go-To-Market Strategy</h3>
+                    <ul class="timeline">
+                        <li>
+                            <h4>Phase 1 (Months 1-12): Research & Validation</h4>
+                            <p>Target the research community with a SaaS beta. Goal: Secure technical validation, case studies, and testimonials from respected institutions to build credibility.</p>
+                        </li>
+                        <li>
+                            <h4>Phase 2 (Months 12-24): OEM Licensing & Pilot Programs</h4>
+                            <p>Leverage validation to approach major OEMs (e.g., Leica, KLA). Goal: Secure the first major licensing deal for high-margin, recurring revenue and broad market access.</p>
+                        </li>
+                        <li>
+                            <h4>Phase 3 (Year 3+): Enterprise & Hardware</h4>
+                            <p>Target large enterprise clients with high-value consulting. Commercialize FPGA implementation for real-time, on-device processing. Goal: Capture the highest-value segment of the market.</p>
+                        </li>
+                    </ul>
+                </section>
+                <section id="the-ask">
+                    <h3 class="section-title">The Ask: $1 Million Seed Round</h3>
+                    <p>We are seeking <strong>$1,000,000</strong> in seed funding to provide a <strong>24-month runway</strong> to achieve key value-inflection milestones: securing foundational IP, developing a commercial-ready SaaS platform, and achieving initial market traction with pilot customers.</p>
+                </section>
+                <section id="use-of-funds">
+                    <h3 class="section-title">Use of Funds</h3>
+                    <ul class="funds-chart">
+                        <li><div class="label">Personnel (Team Expansion)</div><div class="bar-container"><div class="bar" style="width: 48%;">48%</div></div></li>
+                        <li><div class="label">Intellectual Property & Legal</div><div class="bar-container"><div class="bar" style="width: 15%;">15%</div></div></li>
+                        <li><div class="label">Product R&D & Infrastructure</div><div class="bar-container"><div class="bar" style="width: 15%;">15%</div></div></li>
+                        <li><div class="label">Sales & Business Development</div><div class="bar-container"><div class="bar" style="width: 8%;">8%</div></div></li>
+                        <li><div class="label">General & Administrative</div><div class="bar-container"><div class="bar" style="width: 4%;">4%</div></div></li>
+                        <li><div class="label">Contingency Fund</div><div class="bar-container"><div class="bar" style="width: 10%;">10%</div></div></li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- ABOUT PAGE -->
+            <div id="about-page" class="page">
+                <section id="about-me">
+                    <h3 class="section-title">The Founder's Journey</h3>
+                    <div class="about-layout">
+                        <div class="about-text">
+                            <h4>A Different Way of Seeing</h4>
+                            <p>The ISED/ISEE framework is more than an algorithm; it is the mathematical formalization of a lifetime spent decoding the world differently. From a young age, with Asperger's and auditory impairments, my reliance on visual information was absolute. Lacking depth perception until my twenties, I had to unconsciously teach myself to find patterns, relationships, and meaning from a "flat" world—to see the depth hidden in the interplay of color and contrast.</p>
+                            <p>When my perception shifted, it was a revolution. I became acutely aware of how much information is encoded not in objects themselves, but in the <em>relationships between them</em>. This is the foundational insight of StyxAI.</p>
+                            
+                            <h4>A Renaissance of Thinking</h4>
+                            <p>My career path was a deliberate, multi-disciplinary evolution to build the toolkit needed to codify this insight:</p>
+                            <ul>
+                                <li><strong>Industrial Electrician & Telecom Engineer:</strong> I learned how physical systems and information networks are built—the practical, grounded reality of signals and noise.</li>
+                                <li><strong>Physics & Mathematics:</strong> I acquired the fundamental language to describe these signals and the universe they operate in.</li>
+                                <li><strong>PhD in Electrical Engineering:</strong> This was the final step—synthesizing decades of practical experience and theoretical knowledge to solve a problem I was uniquely equipped to understand.</li>
+                            </ul>
+                             <p>I am the only person who could have built this because I did not just study the problem of extracting signal from noise; I have lived it. StyxAI exists to give researchers, doctors, and engineers the same perceptual advantage that my unique journey has given me.</p>
+                        </div>
+                        <div class="about-image">
+                            <!-- IMPORTANT: For the headshot to load, 'selfie.jpg' must be in the same folder as this HTML file. -->
+                            <img src="selfie.jpg" alt="Dr. Timothy Taylor" onerror="this.onerror=null;this.src='https://placehold.co/400x400/000000/FFFFFF?text=Dr.+Tim+Taylor';">
+                        </div>
+                    </div>
+                </section>
+                <section id="generative-vision">
+                    <h3 class="section-title">Generative Vision: Art & The Future</h3>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Ukoo7varBcw?start=12&autoplay=1&mute=1&loop=1&playlist=Ukoo7varBcw" title="Generative Art Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <h4>Beyond Analysis: The Art of Creation</h4>
+                        <p>This demonstration showcases the framework's profound generative capabilities. By understanding the fundamental relationships within an image, our ISEE engine can be used not just for analysis, but for creative synthesis. This hints at a much larger vision for StyxAI, with future applications in synthetic data generation, digital media, and next-generation creative tools.</p>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- CONTACT PAGE -->
+            <div id="contact-page" class="page">
+                <section id="contact-info">
+                    <h3 class="section-title">Contact</h3>
+                    <p>For investment, partnership, or technical inquiries, please reach out directly.</p>
+                    <ul>
+                        <li><strong>Email:</strong> <a href="mailto:tim@styxai.com">tim@styxai.com</a></li>
+                        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/drtimtaylor/" target="_blank">linkedin.com/in/drtimtaylor</a></li>
+                    </ul>
+                    <a href="mailto:tim@styxai.com" class="cta-button">Request Full Pitch Deck</a>
+                </section>
+            </div>
+
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2025 Timothy Taylor | StyxAI. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+
+            function showPage(pageId) {
+                pages.forEach(page => page.classList.remove('active'));
+                const targetPage = document.getElementById(pageId + '-page');
+                if (targetPage) targetPage.classList.add('active');
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + pageId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').substring(1);
+                    showPage(pageId);
+                });
+            });
+
+            const initialPageId = window.location.hash.substring(1) || 'home';
+            showPage(initialPageId);
+            
+            // --- White Paper Download Logic ---
+            const downloadBtn = document.getElementById('download-whitepaper-btn');
+            if(downloadBtn) {
+                downloadBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // This links to the PDF file. Ensure the PDF has the correct name in your website folder.
+                    window.location.href = 'StyxAI_Technical_White_Paper.pdf';
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
